@@ -1,0 +1,6 @@
+{
+  "name": "RE:SPACE - 로컬 업사이클링 자재·가구 제작 파운더",
+  "description": "버려지는 자재에 디자인을 더해 1인 가구 청년들에게 부담 없는 삶의 공간을 선물하는 로컬 정주형 업사이클링 가구 스튜디오",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

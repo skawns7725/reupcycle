@@ -1,0 +1,1508 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RE:SPACE⁹ — 로컬 업사이클링 자재·가구 제작 파운더</title>
+    <meta name="description" content="버려지는 자재에 디자인을 더해 1인 가구 청년들에게 부담 없는 삶의 공간을 선물합니다. 창직자 김남준의 로컬 업사이클링 가구 스튜디오." />
+    <meta property="og:title" content="RE:SPACE⁹ — 로컬 업사이클링 자재·가구 제작 파운더" />
+    <meta property="og:description" content="버려지는 자재에 디자인을 더해 1인 가구 청년들에게 부담 없는 삶의 공간을 선물합니다. 창직자 김남준의 로컬 업사이클링 가구 스튜디오." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans & Noto Sans KR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', '"Noto Sans KR"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Embedded Standalone Styles & Reset (Works 100% offline & without CDN) -->
+    <style>
+      *, ::before, ::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #111111;
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+      /* Standalone Modal backdrop & scroll control */
+      .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+      /* Clean SVG icon styling */
+      .inline-icon {
+        display: inline-block;
+        vertical-align: middle;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+      /* Hairline borders matching Console9 */
+      .border-hairline {
+        border-color: rgba(229, 231, 235, 1);
+      }
+      /* Smooth transitions */
+      button, a {
+        transition: all 0.15s ease-in-out;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white flex flex-col min-h-screen">
+
+    <!-- 1. TOP NAVIGATION (Top Bar Contract: 3-Zone Architecture) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between gap-8">
+        <!-- Zone 1: Single text element wordmark -->
+        <a href="#" class="text-lg md:text-xl font-bold tracking-tight text-neutral-900 whitespace-nowrap shrink-0 hover:opacity-80 transition-opacity flex items-center gap-1.5">
+          <span>RE:SPACE</span>
+          <sup class="text-xs font-semibold text-neutral-500">⁹</sup>
+        </a>
+
+        <!-- Zone 2: 4-5 single-line clean text links -->
+        <nav class="hidden md:flex items-center gap-7 text-xs tracking-wider uppercase font-medium text-neutral-600">
+          <button onclick="openModal('founderModal')" class="hover:text-neutral-900 transition-colors whitespace-nowrap cursor-pointer">
+            About Founder
+          </button>
+          <a href="#collection-grid" class="hover:text-neutral-900 transition-colors whitespace-nowrap cursor-pointer">
+            Collection
+          </a>
+          <button onclick="openModal('buybackModal')" class="hover:text-neutral-900 transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1">
+            <span>Circular Buy-Back</span>
+            <span class="text-[10px] text-neutral-400">· 70%</span>
+          </button>
+          <button onclick="openModal('workshopModal')" class="hover:text-neutral-900 transition-colors whitespace-nowrap cursor-pointer">
+            Workshop & Kit
+          </button>
+          <button onclick="openModal('mvpModal')" class="hover:text-neutral-900 transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1">
+            <span>MVP Pilot</span>
+            <span class="text-[10px] text-neutral-900 font-semibold underline underline-offset-2">3건 검증</span>
+          </button>
+        </nav>
+
+        <!-- Zone 3: 1 primary action -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button onclick="openModal('buybackModal')" class="px-4 py-2 text-xs font-medium tracking-wide text-white bg-neutral-900 hover:bg-neutral-800 transition-colors rounded-none flex items-center gap-1.5 whitespace-nowrap shrink-0 cursor-pointer">
+            <span>선순환 매입 & 상담</span>
+            <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. MAIN CONTENT AREA -->
+    <main class="flex-1">
+      <!-- HERO SECTION (Benchmarking Console⁹ Editorial Styling) -->
+      <section class="pt-16 pb-12 px-6 md:px-10 max-w-[1440px] mx-auto border-b border-neutral-200">
+        <!-- Top Micro Kicker -->
+        <div class="flex flex-wrap items-center justify-between gap-4 text-xs tracking-wider uppercase text-neutral-500 mb-8 pb-3 border-b border-neutral-100">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-neutral-900">창직자 김남준</span>
+            <span>·</span>
+            <span>로컬 업사이클링 자재·가구 제작 파운더</span>
+            <span>·</span>
+            <span>대학가 청년 정주 생태계 거점</span>
+          </div>
+          <div class="flex items-center gap-4 text-neutral-600">
+            <span>인프라 연계: 대학 창업지원단</span>
+            <span>·</span>
+            <span>지역 청년센터</span>
+          </div>
+        </div>
+
+        <!-- Main Massive Editorial Title -->
+        <div class="text-center py-6 md:py-10">
+          <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-neutral-900 inline-flex items-start justify-center">
+            <span>UPCYCLE</span>
+            <sup class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-neutral-400 ml-1 mt-2">⁹</sup>
+          </h1>
+
+          <!-- Core Value Proposition Headline directly from Report -->
+          <p class="mt-6 md:mt-8 text-lg sm:text-xl md:text-2xl font-light text-neutral-800 max-w-3xl mx-auto leading-relaxed [text-wrap:balance]">
+            버려지는 자재에 디자인을 더해 1인 가구 청년들에게 부담 없는 삶의 공간을 선물합니다.
+          </p>
+
+          <!-- Narrative Sub-copy -->
+          <p class="mt-3 text-sm md:text-base text-neutral-500 max-w-2xl mx-auto leading-normal">
+            대학가 상권 침체와 청년 이탈 문제를 해결하기 위해, 용접·기계 가공 기술과 지역 폐자재를 결합해 시중가 1/3 수준의 맞춤 가구 및 선순환 매입(Buy-back)을 실현합니다.
+          </p>
+
+          <!-- Quick Action Buttons -->
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <button onclick="openModal('buybackModal')" class="px-5 py-2.5 text-xs font-medium tracking-wide uppercase bg-neutral-900 text-white hover:bg-neutral-800 transition-colors flex items-center gap-2 cursor-pointer">
+              <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+              <span>이사 가구 선순환 매입(Buy-Back) 계산기</span>
+            </button>
+            <button onclick="openModal('mvpModal')" class="px-5 py-2.5 text-xs font-medium tracking-wide uppercase bg-neutral-100 text-neutral-800 hover:bg-neutral-200 transition-colors border border-neutral-200 flex items-center gap-2 cursor-pointer">
+              <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+              <span>대학가 소상공인 무료 시범 집기 신청 (MVP)</span>
+            </button>
+            <button onclick="openModal('founderModal')" class="px-5 py-2.5 text-xs font-medium tracking-wide uppercase bg-white text-neutral-700 hover:text-neutral-900 transition-colors border border-neutral-200 flex items-center gap-2 cursor-pointer">
+              <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 3.26-6.36 6.36"/><path d="M21.5 8 16 2.5"/></svg>
+              <span>창직자 스토리 & 로드맵</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Quantitative Proof Strips -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200 border-t border-b border-neutral-200 py-4">
+          <div class="py-3 md:py-0 px-4 text-center md:text-left">
+            <div class="text-xs uppercase tracking-wider text-neutral-400 mb-1">Cost Burden Relief</div>
+            <div class="text-xl font-bold tracking-tight text-neutral-900 tabular-nums">초기 가구비용 60% 절감</div>
+            <div class="text-xs text-neutral-500 mt-0.5">지역 폐철골·목재 직가공으로 유통 마진 제거</div>
+          </div>
+          <div class="py-3 md:py-0 px-4 text-center md:text-left">
+            <div class="text-xs uppercase tracking-wider text-neutral-400 mb-1">Circular Guarantee</div>
+            <div class="text-xl font-bold tracking-tight text-neutral-900 tabular-nums">최대 70% 재매입 보장</div>
+            <div class="text-xs text-neutral-500 mt-0.5">원룸 이사 시 폐기물 비용 제로 & 방문 수거 매입</div>
+          </div>
+          <div class="py-3 md:py-0 px-4 text-center md:text-left">
+            <div class="text-xs uppercase tracking-wider text-neutral-400 mb-1">Local MVP Validation</div>
+            <div class="text-xl font-bold tracking-tight text-neutral-900 tabular-nums">소상공인 3곳 시범 검증</div>
+            <div class="text-xs text-neutral-500 mt-0.5">카드뉴스·숏폼 콘텐츠 기반 점포 맞춤 집기 제작</div>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+          <div class="text-xs uppercase tracking-wider text-neutral-400 font-medium">
+            Archived Pieces <span id="itemCountDisplay" class="tabular-nums text-neutral-900 font-semibold">(12)</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5 p-1 bg-neutral-100 border border-neutral-200">
+            <button onclick="setCategoryFilter('all')" id="filter-all" class="filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer bg-white text-neutral-900 shadow-xs">
+              전체 컬렉션 (ALL)
+            </button>
+            <button onclick="setCategoryFilter('studio')" id="filter-studio" class="filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer text-neutral-600 hover:text-neutral-900">
+              1인 가구 청년 가구
+            </button>
+            <button onclick="setCategoryFilter('commercial')" id="filter-commercial" class="filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer text-neutral-600 hover:text-neutral-900">
+              대학가 소상공인 집기 (MVP)
+            </button>
+            <button onclick="setCategoryFilter('circular')" id="filter-circular" class="filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer text-neutral-600 hover:text-neutral-900">
+              선순환 바이백 모듈
+            </button>
+            <button onclick="setCategoryFilter('workshop')" id="filter-workshop" class="filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer text-neutral-600 hover:text-neutral-900">
+              원데이 클래스 & 키트
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. ARCHITECTURAL 4-COLUMN GALLERY GRID -->
+      <section class="max-w-[1440px] mx-auto px-6 md:px-10 py-10" id="collection-grid">
+        <div id="galleryContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-neutral-200">
+          <!-- Dynamically generated via JavaScript -->
+        </div>
+      </section>
+    </main>
+
+    <!-- 4. 4-COLUMN FOOTER (Exact Layout from Reference Image) -->
+    <footer class="border-t border-neutral-200 bg-white text-neutral-600 text-xs">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-10 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <!-- Column 1: ABOUT US -->
+        <div class="space-y-3">
+          <h4 class="text-[11px] font-bold tracking-wider uppercase text-neutral-900">ABOUT US</h4>
+          <p class="text-neutral-500 leading-relaxed text-[11px]">
+            RE:SPACE는 버려지는 산업 자재와 캠퍼스 폐목재에 감각적인 디자인과 정밀 용접 기술을 더해, 대학가 1인 가구 청년들과 소상공인에게 부담 없는 공간을 제공하는 로컬 정주형 업사이클링 가구 스튜디오입니다.
+          </p>
+          <div class="pt-1">
+            <button onclick="openModal('founderModal')" class="text-neutral-900 font-semibold hover:underline flex items-center gap-1 cursor-pointer">
+              <span>창직자 김남준 소개 & 로드맵</span>
+              <svg class="inline-icon w-3 h-3" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Column 2: CONTACT INFO -->
+        <div class="space-y-3">
+          <h4 class="text-[11px] font-bold tracking-wider uppercase text-neutral-900">CONTACT INFO</h4>
+          <div class="space-y-1.5 text-[11px] text-neutral-500">
+            <div>
+              <span class="text-neutral-400 block">제작 및 바이백 문의 전화</span>
+              <span class="font-mono text-neutral-800">010-8254-9009 (상시 상담)</span>
+            </div>
+            <div class="pt-1">
+              <span class="text-neutral-400 block">이메일 문의</span>
+              <span class="font-mono text-neutral-800">founder.namjun@respace.local</span>
+            </div>
+            <div class="pt-1">
+              <span class="text-neutral-400 block">상담 운영 시간</span>
+              <span>평일 09:00 - 19:00 / 토 10:00 - 15:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: ADDRESS & LOCAL HUB -->
+        <div class="space-y-3">
+          <h4 class="text-[11px] font-bold tracking-wider uppercase text-neutral-900">ADDRESS & LOCAL HUB</h4>
+          <div class="space-y-1 text-[11px] text-neutral-500">
+            <div class="text-neutral-800 font-medium">RE:SPACE 업사이클 제작 작업실</div>
+            <div>대학로 104번길 18 (청년창업 복합단지 A동 102호)</div>
+            <div class="pt-2 text-neutral-400">협력 인프라 연계:</div>
+            <div>· 대학 창업지원단 제작지원센터</div>
+            <div>· 로컬 청년센터 메이커스페이스</div>
+          </div>
+        </div>
+
+        <!-- Column 4: MVP & SOCIAL MEDIA -->
+        <div class="space-y-3">
+          <h4 class="text-[11px] font-bold tracking-wider uppercase text-neutral-900">MVP & SOCIAL MEDIA</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li>
+              <button onclick="openModal('mvpModal')" class="hover:text-neutral-900 transition-colors flex items-center gap-1 cursor-pointer">
+                <span>인스타그램 카드뉴스 MVP (소상공인 3곳 검증)</span>
+              </button>
+            </li>
+            <li>
+              <button onclick="openModal('buybackModal')" class="hover:text-neutral-900 transition-colors flex items-center gap-1 cursor-pointer">
+                <span>이사 가구 선순환 매입(Buy-Back) 신청</span>
+              </button>
+            </li>
+            <li>
+              <button onclick="openModal('workshopModal')" class="hover:text-neutral-900 transition-colors flex items-center gap-1 cursor-pointer">
+                <span>친환경 자재 가공 원데이 클래스 예약</span>
+              </button>
+            </li>
+            <li class="pt-1 text-neutral-400">
+              YouTube Shorts · Instagram @respace.upcycle
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Legal Line -->
+      <div class="border-t border-neutral-200">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-400">
+          <div>
+            © RE:SPACE 2026. All rights reserved. 로컬 업사이클링 자재·가구 제작 파운더 김남준
+          </div>
+          <div class="flex items-center gap-6">
+            <button onclick="openModal('founderModal')" class="hover:text-neutral-900 transition-colors cursor-pointer">
+              창직 아이디어 발상 보고서 전문
+            </button>
+            <span class="text-neutral-300">|</span>
+            <a href="#" class="hover:text-neutral-900 transition-colors">Terms & Conditions</a>
+            <span class="text-neutral-300">|</span>
+            <a href="#" class="hover:text-neutral-900 transition-colors">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== 5. MODALS (ALL INCLUDED IN INDEX.HTML) ==================== -->
+
+    <!-- ITEM DETAIL INSPECTION MODAL -->
+    <div id="itemModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 modal-backdrop">
+      <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white border border-neutral-200 shadow-2xl flex flex-col md:flex-row">
+        <button onclick="closeModal('itemModal')" class="absolute top-4 right-4 z-10 p-2 text-neutral-400 hover:text-neutral-900 bg-white/80 border border-neutral-200 transition-colors cursor-pointer">
+          <svg class="inline-icon w-4 h-4" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <!-- Left Image & Guarantee -->
+        <div class="w-full md:w-1/2 p-6 md:p-8 bg-neutral-50 flex flex-col justify-between border-b md:border-b-0 md:border-r border-neutral-200">
+          <div>
+            <div id="modalItemTag" class="text-[11px] font-semibold tracking-wider uppercase text-neutral-400 mb-2">UPCYCLE · 01</div>
+            <h2 id="modalItemName" class="text-2xl font-bold tracking-tight text-neutral-900">Raw Beam Console</h2>
+          </div>
+
+          <div class="my-8 flex items-center justify-center p-4 bg-white border border-neutral-200 min-h-[260px]">
+            <img id="modalItemImg" src="" alt="Upcycled Item" class="max-h-[280px] w-auto object-contain drop-shadow-md" />
+          </div>
+
+          <div class="p-4 bg-white border border-neutral-200 text-xs text-neutral-600 space-y-1.5">
+            <div class="font-semibold text-neutral-900 flex items-center gap-1.5">
+              <svg class="inline-icon w-3.5 h-3.5 text-neutral-700" viewBox="0 0 24 24"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+              <span>선순환 재매입 보장 (Buy-Back Guarantee)</span>
+            </div>
+            <p id="modalItemBuybackText" class="text-neutral-500">
+              청년이 다른 원룸으로 이사할 때, RE:SPACE가 직접 방문하여 가구 상태에 따라 최대 70% 금액으로 재매입합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Specs & Inquiry Form -->
+        <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between bg-white">
+          <div class="space-y-6">
+            <div class="pb-4 border-b border-neutral-200">
+              <div class="text-xs uppercase tracking-wider text-neutral-400">1인 가구 청년 지원 특별 보급가</div>
+              <div class="mt-1 flex items-baseline gap-3">
+                <span id="modalItemPrice" class="text-3xl font-extrabold tracking-tight text-neutral-900 tabular-nums">₩185,000</span>
+                <span id="modalItemOriginalPrice" class="text-sm text-neutral-400 line-through tabular-nums">시중가 ₩450,000</span>
+                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 border border-emerald-200">약 60% 절감</span>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs text-neutral-700">
+              <div>
+                <span class="font-semibold text-neutral-900 block mb-1">작품 개요 & 설계 의도</span>
+                <p id="modalItemDesc" class="text-neutral-600 leading-relaxed"></p>
+              </div>
+
+              <div class="grid grid-cols-1 gap-2 pt-2 border-t border-neutral-100">
+                <div class="flex items-start gap-2">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="m2 16 14-14 6 6-14 14H2v-6z"/><path d="m5 13 2 2"/><path d="m8 10 2 2"/><path d="m11 7 2 2"/><path d="m14 4 2 2"/></svg>
+                  <div>
+                    <span class="font-medium text-neutral-900">규격: </span>
+                    <span id="modalItemDimensions" class="tabular-nums text-neutral-600"></span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 3.26-6.36 6.36"/><path d="M21.5 8 16 2.5"/></svg>
+                  <div>
+                    <span class="font-medium text-neutral-900">재활용 자재 출처: </span>
+                    <span id="modalItemSource" class="text-neutral-600"></span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <div>
+                    <span class="font-medium text-neutral-900">가공 기술: </span>
+                    <span id="modalItemProcess" class="text-neutral-600"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Consultation Form -->
+          <div class="mt-8 pt-4 border-t border-neutral-200">
+            <div id="itemInquirySuccess" class="hidden p-4 bg-emerald-50 border border-emerald-200 text-center">
+              <svg class="inline-icon w-5 h-5 text-emerald-600 mx-auto mb-1" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              <p class="text-xs font-semibold text-emerald-800">맞춤 제작 문의가 접수되었습니다.</p>
+              <p class="text-[11px] text-emerald-600 mt-0.5">김남준 파운더가 24시간 내 상세 실측 및 견적 안내를 드립니다.</p>
+            </div>
+
+            <form id="itemInquiryForm" onsubmit="handleItemInquirySubmit(event)" class="space-y-3">
+              <div class="text-xs font-semibold text-neutral-900 flex items-center justify-between">
+                <span>맞춤 제작 / 점포 시안 신청</span>
+                <button type="button" onclick="closeModal('itemModal'); openModal('buybackModal');" class="text-[11px] text-neutral-500 hover:text-neutral-900 underline cursor-pointer">
+                  이사 가구 매입(Buy-back) 신청하기
+                </button>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <input type="text" required placeholder="신청자명 (소상공인/청년)" class="w-full text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="tel" required placeholder="연락처 (010-0000-0000)" class="w-full text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              </div>
+              <input type="text" placeholder="희망 규격, 설치 공간(원룸/매장), 요청사항 등" class="w-full text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              <button type="submit" class="w-full py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-neutral-900 hover:bg-neutral-800 transition-colors flex items-center justify-center gap-1.5 cursor-pointer">
+                <span>제작 및 실측 상담 접수</span>
+                <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUY-BACK CALCULATOR MODAL (Circular Model A) -->
+    <div id="buybackModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 modal-backdrop">
+      <div class="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto bg-white border border-neutral-200 shadow-2xl">
+        <div class="p-6 md:p-8 border-b border-neutral-200 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider uppercase text-neutral-400 mb-1">RE:SPACE 선순환 리사이클링 솔루션 A</div>
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900 flex items-center gap-2">
+              <svg class="inline-icon w-5 h-5 text-neutral-900" viewBox="0 0 24 24"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+              <span>이사 청년 가구 선순환 매입(Buy-Back) 계산기</span>
+            </h2>
+            <p class="text-xs text-neutral-500 mt-1">이사할 때 폐기물 스티커 붙여 버리지 마세요. 김남준 파운더가 직접 방문하여 현금 매입 및 무상 수거합니다.</p>
+          </div>
+          <button onclick="closeModal('buybackModal')" class="p-2 text-neutral-400 hover:text-neutral-900 border border-neutral-200 transition-colors cursor-pointer">
+            <svg class="inline-icon w-4 h-4" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Step 1: Furniture Category -->
+            <div>
+              <label class="text-xs font-semibold uppercase tracking-wider text-neutral-500 block mb-2">01. 처분 대상 가구/집기 종류</label>
+              <div class="grid grid-cols-2 gap-2 text-xs" id="calcTypeButtons">
+                <button type="button" onclick="setCalcType('desk')" class="calc-type-btn p-2.5 text-left border border-neutral-900 bg-neutral-900 text-white font-medium" data-val="desk">원룸 워크 데스크 & 테이블</button>
+                <button type="button" onclick="setCalcType('bed')" class="calc-type-btn p-2.5 text-left border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400" data-val="bed">모듈형 침대 프레임</button>
+                <button type="button" onclick="setCalcType('shelf')" class="calc-type-btn p-2.5 text-left border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400" data-val="shelf">파티션 수납 책장 및 선반</button>
+                <button type="button" onclick="setCalcType('chair')" class="calc-type-btn p-2.5 text-left border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400" data-val="chair">용접 스틸 체어 & 스툴</button>
+                <button type="button" onclick="setCalcType('hanger')" class="calc-type-btn p-2.5 text-left border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400" data-val="hanger">산업용 파이프 옷걸이 행거</button>
+                <button type="button" onclick="setCalcType('counter')" class="calc-type-btn p-2.5 text-left border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400" data-val="counter">소상공인 매장 카운터/집기</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Source -->
+            <div>
+              <label class="text-xs font-semibold uppercase tracking-wider text-neutral-500 block mb-2">02. 가구 구매 출처</label>
+              <div class="space-y-2 text-xs">
+                <button type="button" onclick="setCalcSource('respace')" id="calcSourceRespace" class="w-full p-3 text-left border border-neutral-900 bg-neutral-50 text-neutral-900 font-semibold flex items-center justify-between">
+                  <div>
+                    <div>RE:SPACE 정품 업사이클 가구</div>
+                    <div class="text-[11px] text-neutral-500 font-normal">최초 구입가 기준 최대 70% 가치 환급 보장</div>
+                  </div>
+                  <svg class="inline-icon w-4 h-4 text-neutral-900" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                </button>
+                <button type="button" onclick="setCalcSource('external')" id="calcSourceExternal" class="w-full p-3 text-left border border-neutral-200 text-neutral-600 hover:border-neutral-300 flex items-center justify-between">
+                  <div>
+                    <div>타 브랜드 원목/철제 중고 가구</div>
+                    <div class="text-[11px] text-neutral-500 font-normal">상태 감정 후 업사이클 자재 리사이클링 매입</div>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Step 3: Duration -->
+              <div class="mt-4">
+                <label class="text-xs font-semibold uppercase tracking-wider text-neutral-500 block mb-2">03. 사용 기간</label>
+                <div class="grid grid-cols-4 gap-1.5 text-xs text-center" id="calcDurationButtons">
+                  <button type="button" onclick="setCalcDuration('under6')" class="calc-dur-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400" data-val="under6">6개월 미만</button>
+                  <button type="button" onclick="setCalcDuration('6to12')" class="calc-dur-btn py-2 border border-neutral-900 bg-neutral-900 text-white font-medium" data-val="6to12">6~12개월</button>
+                  <button type="button" onclick="setCalcDuration('12to24')" class="calc-dur-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400" data-val="12to24">1~2년</button>
+                  <button type="button" onclick="setCalcDuration('over24')" class="calc-dur-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400" data-val="over24">2년 이상</button>
+                </div>
+              </div>
+
+              <!-- Step 4: Condition -->
+              <div class="mt-4">
+                <label class="text-xs font-semibold uppercase tracking-wider text-neutral-500 block mb-2">04. 외관 및 구조 상태</label>
+                <div class="grid grid-cols-3 gap-1.5 text-xs text-center" id="calcCondButtons">
+                  <button type="button" onclick="setCalcCondition('a')" class="calc-cond-btn py-2 border border-neutral-900 bg-neutral-900 text-white font-medium" data-val="a">A급 (파손 없음)</button>
+                  <button type="button" onclick="setCalcCondition('b')" class="calc-cond-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400" data-val="b">B급 (생활 기스)</button>
+                  <button type="button" onclick="setCalcCondition('c')" class="calc-cond-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400" data-val="c">C급 (스크래치/오염)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Output Card -->
+          <div class="p-6 bg-neutral-900 text-white">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <span class="text-[11px] font-semibold uppercase tracking-widest text-neutral-400 block">실시간 예상 매입 지급액 (Estimated Cash Buy-Back)</span>
+                <div class="text-3xl md:text-4xl font-extrabold tracking-tight mt-1 tabular-nums text-white flex items-baseline gap-2">
+                  <span id="calcPayoutDisplay">₩86,000</span>
+                  <span id="calcGuaranteeLabel" class="text-xs font-normal text-amber-300">최대 70% 환급 적용</span>
+                </div>
+              </div>
+              <div class="text-xs text-neutral-300 space-y-1 md:text-right border-t md:border-t-0 pt-3 md:pt-0 border-neutral-800">
+                <div class="flex md:justify-end items-center gap-1.5 text-emerald-400 font-medium">
+                  <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>폐기물 처리 스티커 비용 ₩15,000 절감</span>
+                </div>
+                <div class="flex md:justify-end items-center gap-1.5 text-neutral-400">
+                  <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                  <span>대학가 인근 원룸 무상 방문 수거 지원</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Booking Form -->
+          <div class="pt-2 border-t border-neutral-200">
+            <div id="buybackSuccess" class="hidden p-6 bg-emerald-50 border border-emerald-200 text-center">
+              <svg class="inline-icon w-6 h-6 text-emerald-600 mx-auto mb-2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+              <h3 class="text-sm font-bold text-emerald-900">선순환 매입 방문 수거 신청이 접수되었습니다!</h3>
+              <p class="text-xs text-emerald-700 mt-1">김남준 파운더가 신청자분께 연락하여 방문 일정을 확정하고 현금 즉시 입금을 진행합니다.</p>
+            </div>
+
+            <form id="buybackForm" onsubmit="handleBuybackSubmit(event)" class="space-y-4">
+              <div class="text-xs font-semibold uppercase tracking-wider text-neutral-700">방문 수거 및 매입 일정 신청서</div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input type="text" required placeholder="신청자 청년 이름" class="w-full text-xs px-3 py-2.5 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="tel" required placeholder="연락처 (010-0000-0000)" class="w-full text-xs px-3 py-2.5 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input type="text" required placeholder="대학가 원룸 주소 (예: 대학로 12길 O호)" class="w-full text-xs px-3 py-2.5 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="date" required value="2026-11-20" class="w-full text-xs px-3 py-2.5 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              </div>
+              <button type="submit" class="w-full py-3 text-xs font-semibold uppercase tracking-wider text-white bg-neutral-900 hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                <span>즉시 매입 및 방문 수거 예약 접수</span>
+                <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MVP SHOWCASE MODAL (Report Section 4) -->
+    <div id="mvpModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 modal-backdrop">
+      <div class="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white border border-neutral-200 shadow-2xl">
+        <div class="p-6 md:p-8 border-b border-neutral-200 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider uppercase text-neutral-400 mb-1">REPORT SECTION 4 · MVP VERIFICATION</div>
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900 flex items-center gap-2">
+              <svg class="inline-icon w-5 h-5 text-neutral-900" viewBox="0 0 24 24"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/><path d="M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7"/></svg>
+              <span>대학가 소상공인 점포 3곳 무료 시범 제작 실증 (MVP)</span>
+            </h2>
+            <p class="text-xs text-neutral-500 mt-1">최소 자원으로 시장 수용도를 검증하기 위해 대학가 3개 매장에 무료 시범 집기를 제작하고 인스타그램/숏폼 카드뉴스로 홍보했습니다.</p>
+          </div>
+          <button onclick="closeModal('mvpModal')" class="p-2 text-neutral-400 hover:text-neutral-900 border border-neutral-200 transition-colors cursor-pointer">
+            <svg class="inline-icon w-4 h-4" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-3 border-b border-neutral-200 text-xs bg-neutral-50">
+          <button onclick="setPilotTab(0)" id="pilotTab0" class="p-3.5 text-center font-bold border-r bg-white text-neutral-900 border-b-2 border-b-neutral-900 cursor-pointer">
+            <span class="block text-[10px] text-neutral-400 uppercase">검증 점포 01</span>
+            <span class="truncate block mt-0.5">골목 로스터리 카페</span>
+          </button>
+          <button onclick="setPilotTab(1)" id="pilotTab1" class="p-3.5 text-center font-medium border-r text-neutral-500 hover:text-neutral-900 cursor-pointer">
+            <span class="block text-[10px] text-neutral-400 uppercase">검증 점포 02</span>
+            <span class="truncate block mt-0.5">청년 독립 빈티지 의류점</span>
+          </button>
+          <button onclick="setPilotTab(2)" id="pilotTab2" class="p-3.5 text-center font-medium text-neutral-500 hover:text-neutral-900 cursor-pointer">
+            <span class="block text-[10px] text-neutral-400 uppercase">검증 점포 03</span>
+            <span class="truncate block mt-0.5">로컬 청년 베이커리</span>
+          </button>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4 text-xs">
+              <div>
+                <span class="text-[11px] uppercase tracking-wider text-neutral-400 block mb-1">점포명 및 위치</span>
+                <div id="pilotStoreName" class="text-base font-bold text-neutral-900">대학가 1호점 — 골목 로스터리 카페</div>
+                <div id="pilotStoreLocation" class="text-neutral-500">캠퍼스 정문 앞 골목 상권</div>
+              </div>
+
+              <div class="p-3.5 bg-neutral-50 border border-neutral-200 space-y-2">
+                <div>
+                  <span class="font-semibold text-neutral-900 block">현장 Pain Point:</span>
+                  <p id="pilotProblem" class="text-neutral-600 mt-0.5">초기 인테리어 예산 부족으로 주문 카운터와 대기 벤치 마련 곤란</p>
+                </div>
+                <div class="pt-2 border-t border-neutral-200/60">
+                  <span class="font-semibold text-neutral-900 block">창직자 솔루션:</span>
+                  <p id="pilotSolution" class="text-neutral-600 mt-0.5">인근 물류 파렛트와 스크랩 강재를 정밀 절단·용접해 맞춤형 에스프레소 바 카운터 제작</p>
+                </div>
+              </div>
+
+              <div id="pilotCostReduction" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 font-semibold">
+                비용 절감 효과: 기성 인테리어 ₩2,400,000 → 업사이클 실비 ₩380,000 (84% 절감)
+              </div>
+
+              <div>
+                <span class="font-semibold text-neutral-900 block mb-1">검증 결과 및 고객 반응:</span>
+                <p id="pilotReaction" class="text-neutral-600 leading-relaxed">카페 방문 대학생들의 인스타 포토존으로 입소문, 청년 고객 방문 35% 증가</p>
+              </div>
+            </div>
+
+            <!-- Card News Mockup -->
+            <div class="border border-neutral-200 p-5 bg-neutral-900 text-white flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-neutral-400 pb-3 border-b border-neutral-800">
+                  <div class="flex items-center gap-1.5 text-pink-400">
+                    <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <span>MVP 홍보 카드뉴스</span>
+                  </div>
+                  <div class="flex items-center gap-1.5 text-neutral-400">
+                    <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+                    <span>숏폼 릴스</span>
+                  </div>
+                </div>
+
+                <div class="mt-4 space-y-2.5">
+                  <div id="pilotMediaType" class="text-xs font-semibold text-white">인스타그램 카드뉴스 5컷 & 릴스 숏폼 (조회수 1.8만)</div>
+                  <div id="pilotSlidesContainer" class="space-y-1.5">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-neutral-800 text-[11px] text-neutral-400">
+                #로컬업사이클링 #김남준파운더 #대학가상권살리기 #1인가구가구제작
+              </div>
+            </div>
+          </div>
+
+          <!-- Apply Form for Store 4~6 -->
+          <div class="pt-6 border-t border-neutral-200">
+            <div id="pilotApplySuccess" class="hidden p-4 bg-emerald-50 border border-emerald-200 text-center">
+              <svg class="inline-icon w-5 h-5 text-emerald-600 mx-auto mb-1" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              <p class="text-xs font-semibold text-emerald-800">소상공인 무료 시범 제작 지원 신청이 접수되었습니다!</p>
+              <p class="text-[11px] text-emerald-600 mt-0.5">김남준 파운더가 직접 점포를 방문하여 공간 실측 및 시안을 제공합니다.</p>
+            </div>
+
+            <form id="pilotApplyForm" onsubmit="handlePilotApplySubmit(event)" class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold uppercase tracking-wider text-neutral-900">대학가 소상공인 4호~6호 무료 시범 제작 지원 신청 (선착순 3곳)</span>
+                <span class="text-[11px] text-neutral-500">자재비·제작비 전액 무료 (숏폼 제작 동의 조건)</span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <input type="text" required placeholder="매장 상호명" class="text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="text" required placeholder="업종 (예: 카페, 꽃집, 옷가게)" class="text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="tel" required placeholder="대표자 연락처" class="text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              </div>
+              <input type="text" required placeholder="필요한 집기 (예: 창가 바 테이블, 입간판, 원목 진열 선반 등)" class="w-full text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              <button type="submit" class="w-full py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-neutral-900 hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                <span>무료 시범 제작 신청서 제출</span>
+                <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKSHOP MODAL (Revenue Model B) -->
+    <div id="workshopModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 modal-backdrop">
+      <div class="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white border border-neutral-200 shadow-2xl">
+        <div class="p-6 md:p-8 border-b border-neutral-200 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider uppercase text-neutral-400 mb-1">RE:SPACE 수익 모델 B</div>
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900 flex items-center gap-2">
+              <svg class="inline-icon w-5 h-5 text-neutral-900" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 3.26-6.36 6.36"/><path d="M21.5 8 16 2.5"/></svg>
+              <span>친환경 자재 가공 원데이 클래스 & DIY 공구 큐레이션</span>
+            </h2>
+            <p class="text-xs text-neutral-500 mt-1">지역 청년들이 직접 손으로 가구를 만들고, 나만의 공간을 채우는 경험을 통해 로컬에 애착을 형성합니다.</p>
+          </div>
+          <button onclick="closeModal('workshopModal')" class="p-2 text-neutral-400 hover:text-neutral-900 border border-neutral-200 transition-colors cursor-pointer">
+            <svg class="inline-icon w-4 h-4" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-6">
+          <div>
+            <div class="text-xs font-semibold uppercase tracking-wider text-neutral-500 mb-3">01. 정규 원데이 클래스 커리큘럼 (소수정예 4인)</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="p-4 border border-neutral-900 bg-neutral-50">
+                <div class="flex items-center justify-between text-[11px] text-neutral-400 mb-1">
+                  <span>2.5시간</span>
+                  <span class="font-semibold text-neutral-900">₩35,000 (재료비 포함)</span>
+                </div>
+                <div class="text-sm font-bold text-neutral-900 mb-2">스크랩 메탈 & 파이프 스툴</div>
+                <p class="text-xs text-neutral-600 leading-relaxed mb-3">산업용 파이프와 폐원목을 결합해 견고한 인더스트리얼 스툴을 완성합니다.</p>
+                <div class="pt-2 border-t border-neutral-200 text-[11px] text-neutral-500 space-y-1">
+                  <div>· 파이프 절단 및 나사산 체결</div>
+                  <div>· 목재 샌딩 및 오일 버핑</div>
+                </div>
+              </div>
+              <div class="p-4 border border-neutral-200 bg-white">
+                <div class="flex items-center justify-between text-[11px] text-neutral-400 mb-1">
+                  <span>2시간</span>
+                  <span class="font-semibold text-neutral-900">₩28,000 (재료비 포함)</span>
+                </div>
+                <div class="text-sm font-bold text-neutral-900 mb-2">고재 모듈 데스크 오거나이저</div>
+                <p class="text-xs text-neutral-600 leading-relaxed mb-3">대학 캠퍼스 해체 고재를 다듬어 랩톱 스탠드, 펜 홀더를 제작합니다.</p>
+                <div class="pt-2 border-t border-neutral-200 text-[11px] text-neutral-500 space-y-1">
+                  <div>· 수공구 대패 & 톱질 기본</div>
+                  <div>· 천연 밀랍 바니시 마감</div>
+                </div>
+              </div>
+              <div class="p-4 border border-neutral-200 bg-white">
+                <div class="flex items-center justify-between text-[11px] text-neutral-400 mb-1">
+                  <span>3시간</span>
+                  <span class="font-semibold text-neutral-900">₩45,000 (장구 완비)</span>
+                </div>
+                <div class="text-sm font-bold text-neutral-900 mb-2">초보자 TIG/아크 기초 용접</div>
+                <p class="text-xs text-neutral-600 leading-relaxed mb-3">김남준 파운더의 지도 아래 안전하게 철재를 용접해 미니 조명 프레임을 만듭니다.</p>
+                <div class="pt-2 border-t border-neutral-200 text-[11px] text-neutral-500 space-y-1">
+                  <div>· 용접면 착용 및 아크 발생</div>
+                  <div>· 금속 그라인더 연마</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 bg-neutral-50 border border-neutral-200">
+            <div class="text-xs font-semibold uppercase tracking-wider text-neutral-700 mb-2.5 flex items-center gap-2">
+              <svg class="inline-icon w-3.5 h-3.5 text-neutral-600" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span>DIY 공구 & 업사이클 부자재 큐레이션 (수익 모델 B 마진 연계)</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+              <div class="p-3 bg-white border border-neutral-200">
+                <div class="font-medium text-neutral-900">배관 조인트 스타터 팩</div>
+                <div class="text-neutral-500 text-[11px] mt-0.5">공구 없이 손으로 조립하는 가구 키트</div>
+                <div class="text-xs font-bold text-neutral-900 mt-2 tabular-nums">₩18,000</div>
+              </div>
+              <div class="p-3 bg-white border border-neutral-200">
+                <div class="font-medium text-neutral-900">천연 텅오일 방수 마감 세트</div>
+                <div class="text-neutral-500 text-[11px] mt-0.5">1인 가구 안전 무독성 식물성 오일</div>
+                <div class="text-xs font-bold text-neutral-900 mt-2 tabular-nums">₩14,000</div>
+              </div>
+              <div class="p-3 bg-white border border-neutral-200">
+                <div class="font-medium text-neutral-900">산업용 내열 가죽 작업 장갑</div>
+                <div class="text-neutral-500 text-[11px] mt-0.5">현장 검증 완료 안전 장비</div>
+                <div class="text-xs font-bold text-neutral-900 mt-2 tabular-nums">₩9,000</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-neutral-200">
+            <div id="workshopSuccess" class="hidden p-4 bg-emerald-50 border border-emerald-200 text-center">
+              <svg class="inline-icon w-5 h-5 text-emerald-600 mx-auto mb-1" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              <p class="text-xs font-semibold text-emerald-800">원데이 클래스 수강 신청이 완료되었습니다!</p>
+              <p class="text-[11px] text-emerald-600 mt-0.5">작업실 위치 및 준비물 안내 문자가 발송됩니다.</p>
+            </div>
+
+            <form id="workshopForm" onsubmit="handleWorkshopSubmit(event)" class="space-y-3">
+              <div class="text-xs font-semibold uppercase tracking-wider text-neutral-900 flex items-center justify-between">
+                <span>원데이 클래스 수강 예약</span>
+                <span class="text-[11px] text-neutral-500">지역 청년센터 회원 10% 추가 할인</span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <input type="text" required placeholder="수강생 성함" class="text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="tel" required placeholder="연락처 (010-0000-0000)" class="text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+                <input type="date" required value="2026-11-25" class="text-xs px-3 py-2 border border-neutral-300 focus:outline-none focus:border-neutral-900" />
+              </div>
+              <button type="submit" class="w-full py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-neutral-900 hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                <span>클래스 예약 확정하기</span>
+                <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOUNDER & ROADMAP MODAL (Report Sections 1, 2, 3, 5) -->
+    <div id="founderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 md:p-6 modal-backdrop">
+      <div class="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto bg-white border border-neutral-200 shadow-2xl">
+        <div class="p-6 md:p-8 border-b border-neutral-200 flex items-center justify-between">
+          <div>
+            <div class="text-[11px] font-semibold tracking-wider uppercase text-neutral-400 mb-1">CAREER CREATION PROPOSAL · FOUNDER KIM NAM-JUN</div>
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-neutral-900">
+              김남준 — 로컬 업사이클링 자재·가구 제작 파운더
+            </h2>
+            <p class="text-xs text-neutral-500 mt-1">지역 정주형 창직 아이디어 발상 보고서 기반 실행 계획 & 비전</p>
+          </div>
+          <button onclick="closeModal('founderModal')" class="p-2 text-neutral-400 hover:text-neutral-900 border border-neutral-200 transition-colors cursor-pointer">
+            <svg class="inline-icon w-4 h-4" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="p-6 md:p-8 space-y-8">
+          <div class="p-6 bg-neutral-900 text-white">
+            <span class="text-[11px] font-semibold uppercase tracking-wider text-neutral-400 block mb-1">Core Value Proposition</span>
+            <div class="text-lg md:text-xl font-bold leading-relaxed">
+              "버려지는 자재에 디자인을 더해 1인 가구 청년들에게 부담 없는 삶의 공간을 선물합니다."
+            </div>
+            <div class="mt-3 text-xs text-neutral-400">
+              창직자: 김남준 · 지역 정주 동력: 잘 갖춰진 인프라, 쾌적하고 복잡하지 않은 환경, 적정한 물가 및 월세 수준 (안정적인 생활 기반)
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+            <div class="p-4 border border-neutral-200 bg-neutral-50">
+              <div class="flex items-center gap-1.5 text-neutral-900 font-bold mb-2">
+                <svg class="inline-icon w-4 h-4 text-neutral-700" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <span>우리가 해결할 지역 현안 (Problem)</span>
+              </div>
+              <p class="text-neutral-700 leading-relaxed mb-3">
+                대학가 상권 침체 및 지역 청년들의 타 지역 이탈 문제
+              </p>
+              <div class="pt-2 border-t border-neutral-200/80 text-neutral-500">
+                <strong class="text-neutral-800">창직자의 정주 동력:</strong> 잘 갖춰진 인프라, 쾌적하고 복잡하지 않은 환경, 적정한 물가 및 월세 수준을 기반으로 지속 가능한 생활 기반을 다집니다.
+              </div>
+            </div>
+
+            <div class="p-4 border border-neutral-200 bg-neutral-50">
+              <div class="flex items-center gap-1.5 text-neutral-900 font-bold mb-2">
+                <svg class="inline-icon w-4 h-4 text-neutral-700" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>잠재 고객 및 Pain Point</span>
+              </div>
+              <p class="text-neutral-700 leading-relaxed mb-3">
+                사업 초기 비싼 임대료 부담과 집기/가구 구비의 초기 비용 부담, 이사 시 가구 처분의 번거로움
+              </p>
+              <div class="pt-2 border-t border-neutral-200/80 text-neutral-500">
+                <strong class="text-neutral-800">타겟 그룹:</strong> 지역 정착 예비 청년 창업가 & 대학가 인근 1인 가구 청년
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">창직자 김남준의 핵심 전문성 및 경쟁력</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <div class="p-3.5 border border-neutral-200 bg-white">
+                <div class="font-bold text-neutral-900 mb-1 flex items-center gap-1.5">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-900 shrink-0" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>기계 조작 및 용접 기술</span>
+                </div>
+                <p class="text-neutral-600 leading-relaxed">산업용 강재와 스크랩 메탈을 안전하고 미려한 구조물로 재해석하는 현장 금속 가공 역량</p>
+              </div>
+              <div class="p-3.5 border border-neutral-200 bg-white">
+                <div class="font-bold text-neutral-900 mb-1 flex items-center gap-1.5">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-900 shrink-0" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>독학 기반 DIY 탐구력</span>
+                </div>
+                <p class="text-neutral-600 leading-relaxed">목재·아크릴·테라조 등 다양한 폐자재의 물성을 연구하고 최소 비용으로 최대 내구성을 도출</p>
+              </div>
+              <div class="p-3.5 border border-neutral-200 bg-white">
+                <div class="font-bold text-neutral-900 mb-1 flex items-center gap-1.5">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-900 shrink-0" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>사각지대 정상화 & 현장 해결력</span>
+                </div>
+                <p class="text-neutral-600 leading-relaxed">폐기물 스티커로 버려지던 가구를 발굴해 수리·리폼하고 대학가 소상공인의 집기 비용 60% 절감</p>
+              </div>
+              <div class="p-3.5 border border-neutral-200 bg-white">
+                <div class="font-bold text-neutral-900 mb-1 flex items-center gap-1.5">
+                  <svg class="inline-icon w-3.5 h-3.5 text-neutral-900 shrink-0" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  <span>강한 실행력과 추진력</span>
+                </div>
+                <p class="text-neutral-600 leading-relaxed">대학가 소상공인 3곳 무료 시범 제작 MVP 즉시 실행 및 숏폼 기반 실증 검증 완료</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 border border-neutral-200 bg-neutral-50 text-xs space-y-3">
+            <div class="flex items-center gap-2 text-neutral-900 font-bold">
+              <svg class="inline-icon w-4 h-4 text-neutral-900" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span>지역 정주 로드맵 및 비전</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 text-neutral-700">
+              <span class="font-semibold text-neutral-900">필수 협력 기관:</span>
+              <span class="bg-white px-2 py-1 border border-neutral-200">대학 창업지원단 (창업 공간/장비 인프라 지원)</span>
+              <span class="bg-white px-2 py-1 border border-neutral-200">지역 청년센터 (청년 입주 네트워크 및 클래스 연계)</span>
+            </div>
+            <p class="text-neutral-600 leading-relaxed pt-2 border-t border-neutral-200">
+              1인 가구 청년들에게 저렴한 맞춤 가구를 제공하고 체험 클래스를 운영하며, 이사 시 가구를 매입·리사이클링하는 선순환 로컬 거점을 구축하여 지역 청년 정착 기반을 강화합니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 6. JAVASCRIPT LOGIC (100% INLINE & SELF-CONTAINED) ==================== -->
+    <script>
+      // 12 Curated Gallery Items from Report
+      const GALLERY_ITEMS = [
+        {
+          id: 'raw-beam-console',
+          number: '01',
+          name: 'Raw Beam Console',
+          category: 'commercial',
+          categoryLabel: 'COMMERCIAL FIXTURE',
+          tag: 'UPCYCLE · 01',
+          image: '/assets/images/upcycle_console_metal_1794011903659.jpg',
+          price: '₩185,000',
+          originalEstimatePrice: '₩450,000',
+          buyBackGuarantee: '₩120,000 (최대 65% 재매입)',
+          dimensions: 'W1200 × D380 × H820 (mm)',
+          sourceOrigin: '지역 철거 현장에서 수거한 잔여 강재와 노후 캠퍼스 목재를 결합',
+          fabricationProcess: '산소 절단 및 TIG 정밀 용접 후 천연 텅오일(Tung Oil) 침투 마감',
+          description: '공사 현장의 구조용 H형강을 세밀하게 용접하고, 시간의 결이 깃든 고재 원목 상판을 얹어 견고함과 따스함을 동시에 담아낸 콘솔 테이블입니다.',
+          targetUser: '대학가 인근 감성 카페 카운터, 청년 팝업스토어 진열대, 원룸 포인트 가구'
+        },
+        {
+          id: 'terrazzo-low-table',
+          number: '02',
+          name: 'Terrazzo Low Table',
+          category: 'studio',
+          categoryLabel: '1-PERSON YOUTH',
+          tag: 'UPCYCLE · 02',
+          image: '/assets/images/upcycle_coffee_table_1794011904541.jpg',
+          price: '₩89,000',
+          originalEstimatePrice: '₩240,000',
+          buyBackGuarantee: '₩60,000 (최대 67% 재매입)',
+          dimensions: 'Φ650 × H420 (mm)',
+          sourceOrigin: '지역 인테리어 철거 폐골재와 고물상 잔여 강관 파이프',
+          fabricationProcess: '파쇄 폐골재를 수용성 친환경 바인더로 주조 및 다단계 습식 샌딩',
+          description: '버려지는 폐유리와 콘크리트 조각을 연마해 별빛 같은 테라조 상판을 만들고, 산업용 강관을 기하학적 트러스로 용접해 원룸에 안정감을 주는 로우 테이블입니다.',
+          targetUser: '1인 가구 원룸 거실 좌식/소파 테이블, 대학생 스터디 라운지'
+        },
+        {
+          id: 'studio-compact-desk',
+          number: '03',
+          name: 'Studio Compact Desk & Chair',
+          category: 'studio',
+          categoryLabel: '1-PERSON YOUTH',
+          tag: 'UPCYCLE · 03',
+          image: '/assets/images/upcycle_compact_desk_1794011905708.jpg',
+          price: '₩129,000',
+          originalEstimatePrice: '₩320,000',
+          buyBackGuarantee: '₩90,000 (최대 70% 재매입)',
+          dimensions: 'Desk: W850 × D500 × H740 / Shelf H920 (mm)',
+          sourceOrigin: '대학 창업지원단 리모델링 시 폐기 예정이던 연구용 데스크 상판',
+          fabricationProcess: '정밀 목공 샌딩 후 나사식 배관 조인트로 손쉬운 볼트 체결 구조 설계',
+          description: '좁은 원룸에서도 공간 낭비 없이 랩톱 작업과 서적 수납을 동시에 해결하는 청년 맞춤형 모듈 데스크 세트입니다. 드라이버 하나로 10분 만에 완전 분해됩니다.',
+          targetUser: '대학가 자취생, 취업준비생, 원격 재택근무 1인 청년'
+        },
+        {
+          id: 'structural-shelf',
+          number: '04',
+          name: 'Structural Geometric Shelf',
+          category: 'studio',
+          categoryLabel: 'MODULAR STORAGE',
+          tag: 'UPCYCLE · 04',
+          image: '/assets/images/upcycle_modular_shelf_1794011904944.jpg',
+          price: '₩158,000',
+          originalEstimatePrice: '₩390,000',
+          buyBackGuarantee: '₩105,000 (최대 66% 재매입)',
+          dimensions: 'W900 × D300 × H1500 (mm)',
+          sourceOrigin: '지역 물류 보관소 철거 잔여 각파이프 및 팔레트 고재',
+          fabricationProcess: '다각도 사선 용접 절단 및 목재 브러싱 가공으로 입체 음영 형성',
+          description: '원룸의 수납과 공간 분리(파티션)를 한 번에 해결하는 조형미 넘치는 책장입니다. 벽에 못을 박지 않아도 자체 하중 지지로 든든하게 고정됩니다.',
+          targetUser: '원룸 공간 분리가 필요한 1인 가구, 로컬 독립서점 및 편집숍'
+        },
+        {
+          id: 'industrial-armchair',
+          number: '05',
+          name: 'Weld & Canvas Lounge Chair',
+          category: 'studio',
+          categoryLabel: '1-PERSON YOUTH',
+          tag: 'UPCYCLE · 05',
+          image: '/assets/images/upcycle_compact_desk_1794011905708.jpg',
+          price: '₩98,000',
+          originalEstimatePrice: '₩260,000',
+          buyBackGuarantee: '₩70,000 (최대 71% 재매입)',
+          dimensions: 'W620 × D680 × H760 (mm)',
+          sourceOrigin: '지역 군수 폐원단 재활용 협동조합 + 폐샤시 알루미늄/철재',
+          fabricationProcess: '철제 뼈대 아크 용접 및 두꺼운 왁스 캔버스 3단 결착',
+          description: '오래된 텐트 천의 질감과 거친 용접 스틸의 세련된 조화. 좁은 공간에서도 가벼운 이동성과 안락한 착좌감을 선사합니다.',
+          targetUser: '원룸 릴랙스 체어, 카페 테라스 좌석'
+        },
+        {
+          id: 'lab-timber-bench',
+          number: '06',
+          name: 'Campus Oak Dining Bench',
+          category: 'commercial',
+          categoryLabel: 'COMMERCIAL FIXTURE',
+          tag: 'UPCYCLE · 06',
+          image: '/assets/images/upcycle_console_metal_1794011903659.jpg',
+          price: '₩110,000',
+          originalEstimatePrice: '₩280,000',
+          buyBackGuarantee: '₩75,000 (최대 68% 재매입)',
+          dimensions: 'W1100 × D320 × H450 (mm)',
+          sourceOrigin: '인근 대학교 교구 교체 사업에서 수거한 천연 단풍나무 상판',
+          fabricationProcess: '대패 평탄화 후 모서리 곡면 가공 및 무독성 천연 왁스 도포',
+          description: '대학 교정에 남아있던 단풍나무 상판을 되살려 2~3인이 편히 앉을 수 있는 다목적 벤치입니다.',
+          targetUser: '청년 쉐어하우스, 대학가 소상공인 식음료 매장 대기석'
+        },
+        {
+          id: 'cafe-counter-module',
+          number: '07',
+          name: 'Modular Bar Counter (MVP #1)',
+          category: 'commercial',
+          categoryLabel: 'COMMERCIAL FIXTURE',
+          tag: 'COMMERCIAL · 07',
+          image: '/assets/images/upcycle_modular_shelf_1794011904944.jpg',
+          price: '₩290,000',
+          originalEstimatePrice: '₩850,000',
+          buyBackGuarantee: '₩190,000 (최대 65% 재매입)',
+          dimensions: 'W1600 × D600 × H950 (mm)',
+          sourceOrigin: '대학가 골목 카페 1호점 시범 제작 MVP 실측 맞춤 시공 자재',
+          fabricationProcess: '파렛트 완전 분해 후 열기 건조, 기계 대패 후 방수 탑코트 처리',
+          description: '초기 창업 비용이 부족한 대학가 예비 청년 창업가를 위해 기성 카운터의 1/3 가격으로 제작한 이동식 모듈 카운터입니다.',
+          targetUser: '지역 정착 청년 창업가, 대학가 소상공인 1~2인 카페/주점'
+        },
+        {
+          id: 'circular-bed-frame',
+          number: '08',
+          name: 'Nomad Modular Bed Base',
+          category: 'circular',
+          categoryLabel: 'CIRCULAR BUY-BACK',
+          tag: 'CIRCULAR · 08',
+          image: '/assets/images/upcycle_compact_desk_1794011905708.jpg',
+          price: '₩135,000',
+          originalEstimatePrice: '₩330,000',
+          buyBackGuarantee: '₩95,000 (최대 70% 재매입)',
+          dimensions: 'Super Single: W1120 × L2020 × H250 (mm)',
+          sourceOrigin: '청년 원룸 퇴거 시 매입한 중고 침대 목재의 리사이클 선순환',
+          fabricationProcess: '자외선 살균 세척, 기계 평탄화 후 조립 공구 없이 끼우는 쐐기 구조',
+          description: '이사 갈 때마다 무겁고 버리기 일쑤인 매트리스 프레임을 6개의 모듈러 블록으로 분할하여, 여성 1인도 혼자 들고 옮길 수 있게 만든 선순환 침대입니다.',
+          targetUser: '잦은 이사가 고민인 대학생 및 사회초년생 1인 가구'
+        },
+        {
+          id: 'reclaimed-mirror-stand',
+          number: '09',
+          name: 'Industrial Pipe Full Mirror',
+          category: 'studio',
+          categoryLabel: '1-PERSON YOUTH',
+          tag: 'UPCYCLE · 09',
+          image: '/assets/images/upcycle_coffee_table_1794011904541.jpg',
+          price: '₩68,000',
+          originalEstimatePrice: '₩180,000',
+          buyBackGuarantee: '₩48,000 (최대 70% 재매입)',
+          dimensions: 'W450 × D380 × H1650 (mm)',
+          sourceOrigin: '지역 상가 리모델링 시 폐기되던 5T 강화 안전거울',
+          fabricationProcess: '다이아몬드 휠 모서리 면취 가공 후 파이프 밴딩 및 조인트 결합',
+          description: '거울 뒷면에 옷걸이 훅과 하부 가방 받침대를 통합해 원룸의 옷걸이와 전신거울을 하나로 압축한 다기능 아이템입니다.',
+          targetUser: '옷 수납공간이 부족한 6평 미만 원룸 자취생'
+        },
+        {
+          id: 'display-hanger-rack',
+          number: '10',
+          name: 'Pipe Clothing Rack (MVP #2)',
+          category: 'commercial',
+          categoryLabel: 'COMMERCIAL FIXTURE',
+          tag: 'COMMERCIAL · 10',
+          image: '/assets/images/upcycle_console_metal_1794011903659.jpg',
+          price: '₩72,000',
+          originalEstimatePrice: '₩190,000',
+          buyBackGuarantee: '₩50,000 (최대 69% 재매입)',
+          dimensions: 'W1000 × D420 × H1550 (mm)',
+          sourceOrigin: '대학가 청년 빈티지 의류점 시범 집기 제작 지원',
+          fabricationProcess: '파이프 나사산 절삭 가공 및 무광 녹 방지 오일 버핑',
+          description: '대학가 청년 창업 옷가게의 집기 비용을 획기적으로 낮춘 산업용 파이프 행거입니다.',
+          targetUser: '지역 소상공인 의류 매장, 옷이 많은 1인 가구'
+        },
+        {
+          id: 'workshop-diy-stool',
+          number: '11',
+          name: 'Workshop Reclaimed Stool',
+          category: 'workshop',
+          categoryLabel: 'WORKSHOP & KIT',
+          tag: 'WORKSHOP · 11',
+          image: '/assets/images/upcycle_modular_shelf_1794011904944.jpg',
+          price: '₩35,000',
+          originalEstimatePrice: '₩80,000',
+          buyBackGuarantee: '체험 클래스 재료비 포함',
+          dimensions: 'W300 × D300 × H430 (mm)',
+          sourceOrigin: '원데이 클래스 수강 청년들이 직접 용접하고 깎아 만드는 업사이클링 스툴',
+          fabricationProcess: '기초 아크 용접 + 목재 버닝 각인 + 천연 밀랍 코팅',
+          description: '파운더 김남준의 원데이 클래스에서 청년들이 직접 손으로 만들어가는 친환경 자재 스툴입니다.',
+          targetUser: '가구를 직접 만들어보고 싶은 대학생, 지역 정착 청년'
+        },
+        {
+          id: 'signboard-pedestal',
+          number: '12',
+          name: 'Store Identity Pedestal (MVP #3)',
+          category: 'commercial',
+          categoryLabel: 'COMMERCIAL FIXTURE',
+          tag: 'COMMERCIAL · 12',
+          image: '/assets/images/upcycle_coffee_table_1794011904541.jpg',
+          price: '₩65,000',
+          originalEstimatePrice: '₩180,000',
+          buyBackGuarantee: '₩42,000 (최대 65% 재매입)',
+          dimensions: 'W350 × D350 × H900 (mm)',
+          sourceOrigin: '대학가 베이커리 3호점 무료 시범 제작 지원 및 숏폼 홍보',
+          fabricationProcess: '선반 절삭 칩을 투명 레진/아크릴에 인클루드한 감성 조형물',
+          description: '점포 입구에서 메뉴판을 거치하거나 오브제를 올려두는 입간판 겸용 스탠드입니다.',
+          targetUser: '골목 상권 소상공인 매장, 청년 베이커리, 플라워숍'
+        }
+      ];
+
+      // Pilot Stores Dataset for MVP
+      const PILOTS = [
+        {
+          store: '대학가 1호점 — 골목 로스터리 카페',
+          location: '캠퍼스 정문 앞 골목 상권',
+          problem: '초기 인테리어 예산 부족으로 주문 카운터와 대기 벤치 마련 곤란',
+          solution: '인근 물류 파렛트와 스크랩 강재를 정밀 절단·용접해 맞춤형 에스프레소 바 카운터 제작',
+          costReduction: '기성 인테리어 ₩2,400,000 → 업사이클 실비 ₩380,000 (84% 절감)',
+          mediaType: '인스타그램 카드뉴스 5컷 & 릴스 숏폼 (조회수 1.8만)',
+          slides: [
+            '01. 철거 직전 파렛트 수거 현장 탐색',
+            '02. 김남준 파운더의 정밀 평탄화 & TIG 용접 작업',
+            '03. 친환경 천연 오일 마감 및 방수 코팅',
+            '04. 매장 실측 배치 및 점주 인터뷰 "비용 80% 줄이고 분위기 최고"'
+          ],
+          reaction: '카페 방문 대학생들의 인스타 포토존으로 입소문, 청년 고객 방문 35% 증가'
+        },
+        {
+          store: '대학가 2호점 — 청년 독립 빈티지 의류점',
+          location: '대학가 청년창업거리 B1',
+          problem: '두꺼운 겨울 아우터를 거치할 견고한 의류 행거 비용 및 협소한 매장',
+          solution: '폐공장 아연도금 파이프를 나사산 가공하여 천장-바닥 일체형 트러스 행거 구축',
+          costReduction: '상업용 시스템 행거 ₩1,200,000 → 업사이클링 ₩220,000 (81% 절감)',
+          mediaType: '숏폼 영상 (작업 비하인드 45초 숏폼)',
+          slides: [
+            '01. 노후 파이프 녹 제거 및 표면 버핑',
+            '02. 80kg 하중 테스트 완료 (패딩 40벌 거치)',
+            '03. 하부 신발 수거 고재 선반 결합',
+            '04. 대학생 옷가게 오프닝 데이 현장'
+          ],
+          reaction: '지역 청년 패션 동아리와의 네트워크 연계 및 공간 대관 활성화'
+        },
+        {
+          store: '대학가 3호점 — 로컬 청년 베이커리',
+          location: '대학 후문 주택가 상권',
+          problem: '골목 안쪽에 위치하여 지나가는 학생들의 시선을 끌 감성 입간판 필요',
+          solution: '철거 아크릴 잔여판과 금속 선반 절삭칩을 활용한 자석 교체형 메뉴 입간판 제작',
+          costReduction: '주문 제작 금속 간판 ₩650,000 → 업사이클링 ₩95,000 (85% 절감)',
+          mediaType: '카드뉴스 4컷 및 릴스 홍보',
+          slides: [
+            '01. 버려진 아크릴 투명도 복원 폴리싱',
+            '02. 절삭 금속 칩을 감성 오브제로 재배치',
+            '03. 방수 LED 백라이트 모듈 결합',
+            '04. 일일 빵 라인업 자석 메뉴판 완성'
+          ],
+          reaction: '골목 유입 손님 28% 증가, SNS 감성 사진 공유 확산'
+        }
+      ];
+
+      // State
+      let currentCategory = 'all';
+      const itemViews = {}; // itemId -> 0, 1, or 2
+
+      // Image Fallback Handler
+      function handleImageFallback(img, origPath) {
+        if (!img.dataset.triedSrc) {
+          img.dataset.triedSrc = "true";
+          img.src = '/src' + origPath;
+        } else if (!img.dataset.triedPublic) {
+          img.dataset.triedPublic = "true";
+          img.src = './public' + origPath;
+        } else {
+          // Graceful styled placeholder fallback
+          img.style.display = 'none';
+          if (img.parentElement) {
+            img.parentElement.innerHTML = `
+              <div class="flex flex-col items-center justify-center p-4 text-center">
+                <svg class="inline-icon w-10 h-10 text-neutral-300 mb-2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                <span class="text-xs font-semibold text-neutral-700">RE:SPACE Studio Specimen</span>
+                <span class="text-[10px] text-neutral-400 mt-1">업사이클링 실측 모델링</span>
+              </div>
+            `;
+          }
+        }
+      }
+
+      // Render Gallery
+      function renderGallery() {
+        const container = document.getElementById('galleryContainer');
+        const countDisplay = document.getElementById('itemCountDisplay');
+        const filtered = currentCategory === 'all'
+          ? GALLERY_ITEMS
+          : GALLERY_ITEMS.filter(it => it.category === currentCategory);
+
+        countDisplay.textContent = `(${filtered.length})`;
+
+        if (filtered.length === 0) {
+          container.innerHTML = '<div class="col-span-full py-16 text-center text-xs text-neutral-400">해당 카테고리의 제작 결과물이 없습니다.</div>';
+          return;
+        }
+
+        container.innerHTML = filtered.map(item => {
+          const view = itemViews[item.id] || 0;
+          return `
+            <div onclick="openItemModal('${item.id}')" class="group relative flex flex-col justify-between border-r border-b border-neutral-200 bg-white p-6 md:p-8 hover:bg-neutral-50/50 transition-colors cursor-pointer">
+              <!-- Cell Header -->
+              <div class="flex items-center justify-between text-[11px] tracking-wider uppercase text-neutral-400 font-medium mb-4">
+                <span class="group-hover:text-neutral-900 transition-colors">${item.tag}</span>
+                <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
+                  <button onclick="changeItemView('${item.id}', -1)" class="p-1 hover:text-neutral-900 text-neutral-400 transition-colors cursor-pointer" title="이전 모드">
+                    <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+                  </button>
+                  <span class="text-[10px] tabular-nums text-neutral-500">0${view + 1} / 03</span>
+                  <button onclick="changeItemView('${item.id}', 1)" class="p-1 hover:text-neutral-900 text-neutral-400 transition-colors cursor-pointer" title="다음 모드">
+                    <svg class="inline-icon w-3.5 h-3.5" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Center Image/Card View -->
+              <div class="relative aspect-square w-full flex items-center justify-center my-4 overflow-hidden bg-white">
+                ${view === 0 ? `
+                  <div class="relative w-full h-full flex items-center justify-center p-4">
+                    <img src="${item.image}" alt="${item.name}" onerror="handleImageFallback(this, '${item.image}')" class="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500 ease-out" />
+                  </div>
+                ` : view === 1 ? `
+                  <div class="w-full h-full p-6 bg-neutral-50 flex flex-col justify-center border border-neutral-200/60">
+                    <div class="text-[11px] uppercase tracking-wider text-neutral-400 mb-1">Rescued Material Origin</div>
+                    <div class="text-sm font-semibold text-neutral-900 mb-2">${item.name}</div>
+                    <p class="text-xs text-neutral-600 leading-relaxed">${item.sourceOrigin}</p>
+                    <div class="mt-4 pt-3 border-t border-neutral-200 text-[11px] text-neutral-500">
+                      가공 기술: ${item.fabricationProcess}
+                    </div>
+                  </div>
+                ` : `
+                  <div class="w-full h-full p-6 bg-neutral-900 text-white flex flex-col justify-center">
+                    <div class="text-[11px] uppercase tracking-wider text-neutral-400 mb-1">Circular Spec & Guarantee</div>
+                    <div class="text-lg font-bold tracking-tight mb-2">${item.dimensions}</div>
+                    <div class="text-xs text-neutral-300 leading-relaxed mb-3">${item.targetUser}</div>
+                    <div class="text-xs font-semibold text-amber-300">${item.buyBackGuarantee}</div>
+                  </div>
+                `}
+
+                <div class="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/5 transition-colors pointer-events-none flex items-end justify-end p-2 opacity-0 group-hover:opacity-100">
+                  <span class="text-[11px] bg-white text-neutral-900 px-2 py-1 shadow-xs border border-neutral-200 flex items-center gap-1 font-medium">
+                    <svg class="inline-icon w-3 h-3" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    상세 정보
+                  </span>
+                </div>
+              </div>
+
+              <!-- Cell Footer -->
+              <div class="pt-4 border-t border-neutral-100">
+                <div class="flex items-baseline justify-between gap-2">
+                  <h3 class="text-base font-semibold text-neutral-900 tracking-tight group-hover:text-neutral-700 transition-colors">
+                    ${item.name}
+                  </h3>
+                  <div class="text-right">
+                    <span class="text-sm font-bold text-neutral-900 tabular-nums">${item.price}</span>
+                  </div>
+                </div>
+                <div class="mt-1 flex items-center justify-between text-xs text-neutral-500">
+                  <span class="truncate max-w-[180px]">${item.categoryLabel}</span>
+                  <span class="line-through text-neutral-400 tabular-nums text-[11px]">시중가 ${item.originalEstimatePrice}</span>
+                </div>
+                <div class="mt-2.5 pt-2 border-t border-neutral-100/80 flex items-center justify-between text-[11px]">
+                  <span class="text-neutral-600 font-medium flex items-center gap-1">
+                    <svg class="inline-icon w-2.5 h-2.5 text-neutral-400" viewBox="0 0 24 24"><path d="M21 2v6h-6M3 12a9 9 0 0 1 15-6.7L21 8M3 22v-6h6M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+                    ${item.buyBackGuarantee.split(' ')[0]} 재매입
+                  </span>
+                  <span class="text-neutral-400 group-hover:text-neutral-900 transition-colors">스펙 보기 →</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function changeItemView(id, delta) {
+        const current = itemViews[id] || 0;
+        itemViews[id] = (current + delta + 3) % 3;
+        renderGallery();
+      }
+
+      function setCategoryFilter(category) {
+        currentCategory = category;
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.className = 'filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer text-neutral-600 hover:text-neutral-900';
+        });
+        const activeBtn = document.getElementById('filter-' + category);
+        if (activeBtn) {
+          activeBtn.className = 'filter-btn px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer bg-white text-neutral-900 shadow-xs';
+        }
+        renderGallery();
+      }
+
+      // Modal Controls
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+      }
+
+      // Close on ESC key or clicking backdrop
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-backdrop').forEach(modal => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          });
+          document.body.style.overflow = '';
+        }
+      });
+
+      document.querySelectorAll('.modal-backdrop').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+
+      // Item Modal Trigger
+      function openItemModal(itemId) {
+        const item = GALLERY_ITEMS.find(it => it.id === itemId);
+        if (!item) return;
+
+        document.getElementById('modalItemTag').textContent = `${item.tag} · ${item.categoryLabel}`;
+        document.getElementById('modalItemName').textContent = item.name;
+        const imgEl = document.getElementById('modalItemImg');
+        imgEl.style.display = 'block';
+        imgEl.dataset.triedSrc = "";
+        imgEl.dataset.triedPublic = "";
+        imgEl.src = item.image;
+        imgEl.onerror = () => handleImageFallback(imgEl, item.image);
+
+        document.getElementById('modalItemPrice').textContent = item.price;
+        document.getElementById('modalItemOriginalPrice').textContent = `시중가 ${item.originalEstimatePrice}`;
+        document.getElementById('modalItemDesc').textContent = item.description;
+        document.getElementById('modalItemDimensions').textContent = item.dimensions;
+        document.getElementById('modalItemSource').textContent = item.sourceOrigin;
+        document.getElementById('modalItemProcess').textContent = item.fabricationProcess;
+        document.getElementById('modalItemBuybackText').textContent = `청년이 다른 원룸으로 이사할 때, RE:SPACE가 직접 방문하여 가구 상태에 따라 ${item.buyBackGuarantee} 금액으로 재매입합니다.`;
+
+        document.getElementById('itemInquirySuccess').classList.add('hidden');
+        document.getElementById('itemInquiryForm').classList.remove('hidden');
+
+        openModal('itemModal');
+      }
+
+      function handleItemInquirySubmit(e) {
+        e.preventDefault();
+        document.getElementById('itemInquiryForm').classList.add('hidden');
+        document.getElementById('itemInquirySuccess').classList.remove('hidden');
+        setTimeout(() => {
+          closeModal('itemModal');
+        }, 2500);
+      }
+
+      // Buy-Back Calculator State & Math
+      let calcState = {
+        type: 'desk',
+        source: 'respace',
+        duration: '6to12',
+        cond: 'a'
+      };
+
+      const basePrices = {
+        desk: 130000,
+        bed: 140000,
+        shelf: 160000,
+        chair: 80000,
+        hanger: 75000,
+        counter: 300000
+      };
+
+      function updateCalcOutput() {
+        const base = basePrices[calcState.type] || 120000;
+        const sourceMult = calcState.source === 'respace' ? 0.70 : 0.40;
+        let durMult = 0.95;
+        if (calcState.duration === 'under6') durMult = 1.05;
+        if (calcState.duration === '6to12') durMult = 0.95;
+        if (calcState.duration === '12to24') durMult = 0.85;
+        if (calcState.duration === 'over24') durMult = 0.75;
+
+        let condMult = 1.0;
+        if (calcState.cond === 'a') condMult = 1.0;
+        if (calcState.cond === 'b') condMult = 0.85;
+        if (calcState.cond === 'c') condMult = 0.65;
+
+        const payout = Math.round((base * sourceMult * durMult * condMult) / 1000) * 1000;
+        document.getElementById('calcPayoutDisplay').textContent = `₩${payout.toLocaleString()}`;
+        document.getElementById('calcGuaranteeLabel').textContent = calcState.source === 'respace' ? '최대 70% 환급 적용' : '선순환 자재 매입 기준';
+      }
+
+      function setCalcType(type) {
+        calcState.type = type;
+        document.querySelectorAll('.calc-type-btn').forEach(btn => {
+          if (btn.dataset.val === type) {
+            btn.className = 'calc-type-btn p-2.5 text-left border border-neutral-900 bg-neutral-900 text-white font-medium';
+          } else {
+            btn.className = 'calc-type-btn p-2.5 text-left border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400';
+          }
+        });
+        updateCalcOutput();
+      }
+
+      function setCalcSource(source) {
+        calcState.source = source;
+        const respaceBtn = document.getElementById('calcSourceRespace');
+        const extBtn = document.getElementById('calcSourceExternal');
+        if (source === 'respace') {
+          respaceBtn.className = 'w-full p-3 text-left border border-neutral-900 bg-neutral-50 text-neutral-900 font-semibold flex items-center justify-between';
+          extBtn.className = 'w-full p-3 text-left border border-neutral-200 text-neutral-600 hover:border-neutral-300 flex items-center justify-between';
+        } else {
+          extBtn.className = 'w-full p-3 text-left border border-neutral-900 bg-neutral-50 text-neutral-900 font-semibold flex items-center justify-between';
+          respaceBtn.className = 'w-full p-3 text-left border border-neutral-200 text-neutral-600 hover:border-neutral-300 flex items-center justify-between';
+        }
+        updateCalcOutput();
+      }
+
+      function setCalcDuration(dur) {
+        calcState.duration = dur;
+        document.querySelectorAll('.calc-dur-btn').forEach(btn => {
+          if (btn.dataset.val === dur) {
+            btn.className = 'calc-dur-btn py-2 border border-neutral-900 bg-neutral-900 text-white font-medium';
+          } else {
+            btn.className = 'calc-dur-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400';
+          }
+        });
+        updateCalcOutput();
+      }
+
+      function setCalcCondition(cond) {
+        calcState.cond = cond;
+        document.querySelectorAll('.calc-cond-btn').forEach(btn => {
+          if (btn.dataset.val === cond) {
+            btn.className = 'calc-cond-btn py-2 border border-neutral-900 bg-neutral-900 text-white font-medium';
+          } else {
+            btn.className = 'calc-cond-btn py-2 border border-neutral-200 text-neutral-600 hover:border-neutral-400';
+          }
+        });
+        updateCalcOutput();
+      }
+
+      function handleBuybackSubmit(e) {
+        e.preventDefault();
+        document.getElementById('buybackForm').classList.add('hidden');
+        document.getElementById('buybackSuccess').classList.remove('hidden');
+        setTimeout(() => {
+          closeModal('buybackModal');
+        }, 3000);
+      }
+
+      // MVP Pilot Tabs
+      function setPilotTab(index) {
+        for (let i = 0; i < 3; i++) {
+          const tab = document.getElementById('pilotTab' + i);
+          if (i === index) {
+            tab.className = 'p-3.5 text-center font-bold border-r last:border-r-0 bg-white text-neutral-900 border-b-2 border-b-neutral-900 cursor-pointer';
+          } else {
+            tab.className = 'p-3.5 text-center font-medium border-r last:border-r-0 text-neutral-500 hover:text-neutral-900 cursor-pointer';
+          }
+        }
+
+        const pilot = PILOTS[index];
+        document.getElementById('pilotStoreName').textContent = pilot.store;
+        document.getElementById('pilotStoreLocation').textContent = pilot.location;
+        document.getElementById('pilotProblem').textContent = pilot.problem;
+        document.getElementById('pilotSolution').textContent = pilot.solution;
+        document.getElementById('pilotCostReduction').textContent = '비용 절감 효과: ' + pilot.costReduction;
+        document.getElementById('pilotReaction').textContent = pilot.reaction;
+        document.getElementById('pilotMediaType').textContent = pilot.mediaType;
+
+        const slidesCont = document.getElementById('pilotSlidesContainer');
+        slidesCont.innerHTML = pilot.slides.map((s, idx) => `
+          <div class="text-xs p-2 bg-neutral-800 border border-neutral-700 text-neutral-200 flex items-center gap-2">
+            <span class="text-[10px] text-neutral-400 font-mono">[${idx + 1}]</span>
+            <span>${s}</span>
+          </div>
+        `).join('');
+      }
+
+      function handlePilotApplySubmit(e) {
+        e.preventDefault();
+        document.getElementById('pilotApplyForm').classList.add('hidden');
+        document.getElementById('pilotApplySuccess').classList.remove('hidden');
+        setTimeout(() => {
+          closeModal('mvpModal');
+        }, 2500);
+      }
+
+      // Workshop Submit
+      function handleWorkshopSubmit(e) {
+        e.preventDefault();
+        document.getElementById('workshopForm').classList.add('hidden');
+        document.getElementById('workshopSuccess').classList.remove('hidden');
+        setTimeout(() => {
+          closeModal('workshopModal');
+        }, 2500);
+      }
+
+      // Initialize Everything on Load
+      document.addEventListener('DOMContentLoaded', () => {
+        renderGallery();
+        setPilotTab(0);
+        updateCalcOutput();
+      });
+    </script>
+  </body>
+</html>
